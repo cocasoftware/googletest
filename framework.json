@@ -1,0 +1,21 @@
+{
+  "name": "googletest",
+  "version": "1.16.0",
+  "type": "custom",
+  "description": "Google Test — Google's C++ testing and mocking framework.",
+  "publish": {
+    "headers": {
+      "include_dirs": ["googletest/include", "googlemock/include"],
+      "patterns": ["gtest/**/*.h", "gmock/**/*.h"]
+    },
+    "binaries": {
+      "glob": ["libgtest*", "libgmock*", "gtest*", "gmock*"],
+      "include_static": true,
+      "include_pdb": false
+    },
+    "extras": [
+      { "from": "${source}/LICENSE", "to": "." }
+    ],
+    "cmake_config": "auto"
+  }
+}

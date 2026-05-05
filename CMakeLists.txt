@@ -1,6 +1,12 @@
 # Note: CMake support is community-based. The maintainers do not use CMake
 # internally.
 
+# COCA: GoogleTest requires POSIX signals/dup/mkstemp — skip on wasm32-wasip1
+if(COCA_TARGET_PROFILE MATCHES "^wasm32-wasip")
+    message(STATUS "Skipping googletest: not supported on ${COCA_TARGET_PROFILE}")
+    return()
+endif()
+
 cmake_minimum_required(VERSION 3.16)
 
 project(googletest-distribution)
